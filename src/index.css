@@ -1,0 +1,149 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input::-webkit-input-placeholder {
+  color: #B5BDC6;
+}
+
+input::-moz-input-placeholder {
+  color: #B5BDC6;
+}
+
+input::-o-input-placeholder {
+  color: #B5BDC6;
+}
+
+/* 下拉选择框 */
+
+.selectWrapper {
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  outline: none;
+}
+
+.selectWrapper .selectLabel {
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
+  color: #485767;
+  letter-spacing: 0;
+  width: 92px;
+}
+
+.selectWrapper .selectBox {
+  width: 180px;
+  height: 30px;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #485767;
+  letter-spacing: 0;
+  background: #FFFFFF;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.selectWrapper .selectBox .selectOption {
+  background: #FFFFFF;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  overflow: hidden;
+}
+
+.selectWrapper .selectBox .selectOption .selectTip {
+  color: #333333;
+}
+
+.selectWrapper .selectBox .selectOption em {
+  font-family: PingFangSC-Regular;
+  color: #B5BDC6;
+  display: inline-block;
+  line-height: 30px;
+  font-style: normal;
+  padding-left: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.selectWrapper .selectBox .selectOption .selIcon {
+  width: 20px;
+  height: 20px;
+  margin: 6px 6px 0 0;
+  background: url('https://wx.gemii.cc/gemii/cdn/clome.png') no-repeat;
+  background-size: 20px 20px;
+  float: right;
+}
+
+.selectWrapper .selectBox .selectOption .selIcon.selectArrow {
+  transform: rotate(-180deg);
+}
+
+.selectWrapper .selectBox .optionUl,
+.fuzzySearch  .optionUl {
+  width: 100%;
+  max-height: 467px;
+  background: #FFFFFF;
+  box-shadow: 0 6px 14px 0 rgba(20, 62, 176, 0.20);
+  border-radius: 2px;
+  transition: all .3s;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 2;
+  overflow-y: scroll;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #485767;
+}
+
+.selectWrapper .selectBox .optionUl li,
+.fuzzySearch  .optionUl li{
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.selectWrapper .selectBox .optionUl li:hover,
+.fuzzySearch  .optionUl li:hover{
+  background: #F8F8F9;
+  color: #288BF2;
+}
+
+/* 数字输入 */
+
+.number-input {
+  position: relative;
+}
+
+.number-input::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}

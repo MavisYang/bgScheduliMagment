@@ -1,0 +1,201 @@
+.tableBox {
+    width: 100%;
+    height: calc(100% - 58px);
+    position: relative;
+}
+
+.tableBox .tableTitleBox {
+    height: 74px;
+    padding: 21px 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.tableBox .tableTitleBox .signs {
+    flex: none;
+    width: 300px;
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #485767;
+}
+
+.tableBox .tableTitleBox .signs .item {
+    float: left;
+    text-indent: 18px;
+    margin-right: 14px;
+    position: relative;
+}
+
+.tableBox .tableTitleBox .signs .item::after {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: #FFFFFF;
+    border: 2px solid #E9EBEE;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 1px;
+}
+
+.tableBox .tableTitleBox .signs .item:first-child::after {
+    background: #DCECFF;
+    border: 1px solid #F3F5F6;
+}
+
+.tableBox .tableTitleBox .downloadBtn {
+    width: 96px;
+    height: 30px;
+    border: 1px solid #288BF2;
+    border-radius: 2px;
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #288BF2;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.tableBox .tableContent {
+    height: calc(100% - 74px);
+    margin: 0 28px;
+}
+
+.tableBox .tableContent .inner {
+    display: flex;
+}
+
+.tableBox .tableContent .inner .left {
+    flex: none;
+}
+
+.tableBox .tableContent .leftTable {
+    width: 178px;
+    box-sizing: border-box;
+    background: #F8F8F8;
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #485767;
+    text-align: center;
+    border: 1px solid #E9EBEE;
+    border-collapse: collapse;
+}
+
+.tableBox .tableContent .leftTable th {
+    height: 96px;
+    font-family: PingFangSC-Medium;
+    border: 1px solid #E9EBEE;
+}
+
+.tableBox .tableContent .leftTable td {
+    border: 1px solid #E9EBEE;
+    height: 50px;
+    line-height: 50px;
+}
+
+.tableBox .tableContent .leftTable td:nth-child(1) {
+    width: 102px;
+}
+
+.tableBox .tableContent .inner .right {
+    flex: auto;
+    border: 1px solid #E9EBEE;
+    border-left: 0 none;
+    overflow: hidden;
+}
+
+.tableBox .tableContent .right .month {
+    height: 49px;
+    border-bottom: 1px solid #E9EBEE;
+    background: #F8F8F8;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tableBox .tableContent .right .month span {
+    flex: none;
+    font-family: PingFangSC-Medium;
+    font-size: 13px;
+    color: #288BF2;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.tableBox .tableContent .right .month span:nth-child(2) {
+    letter-spacing: 0;
+    text-decoration: none;
+    margin: 0 52px;
+    color: #485767;
+    cursor: default;
+}
+
+.tableBox .tableContent .right .rightInner {
+    width: 100%;
+    overflow: auto;
+}
+
+.tableBox .tableContent .rightTable {
+    min-width: 100%;
+    border-collapse: collapse;
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #485767;
+}
+
+.tableBox .tableContent .rightTable th {
+    min-width: 33px;
+    height: 44px;
+    font-family: PingFangSC-Medium;
+    background: #F8F8F8;
+    border: 1px solid #E9EBEE;
+    border-top: 0 none;
+    border-left: 0 none;
+    position: relative;
+}
+
+.tableBox .tableContent .rightTable th:last-child {
+    border-right: 0 none;
+}
+
+.tableBox .tableContent .rightTable th.current::after {
+    display: block;
+    content: '';
+    background: #F75A5A;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6px;
+}
+
+.tableBox .tableContent .rightTable td {
+    min-width: 33px;
+    height: 48px;
+    border: 1px solid #E9EBEE;
+    border-bottom: 0 none;
+    border-left: 0 none;
+    cursor: pointer;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.tableBox .tableContent .rightTable td:last-child {
+    border-right: 0 none;
+}
+
+.tableBox .tableContent .rightTable td.active {
+    background: #DCECFF;
+}
+
+.tableBox .tableContent .rightTable td:hover,
+.tableBox .tableContent .rightTable td.active:hover {
+    background: #F8F8F8;
+}

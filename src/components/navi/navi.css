@@ -1,0 +1,19 @@
+.naviBox{
+    height: 56px;
+    border: 1px solid #E9EBEE;
+}
+
+.naviBox .navi{
+    height: 56px;
+    line-height: 56px;
+    width: 92px;
+    float: left;
+    margin-left: 50px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+
+.naviBox .navi.active{
+    border-bottom: 4px solid #288BF2;
+}
