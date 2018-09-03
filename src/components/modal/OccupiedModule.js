@@ -34,7 +34,7 @@ export default class OccupiedModule extends Component {
             barrier: true,
             tempUserName: '',
             cookie_username:'',
-            btnDiabled:false
+            btnDisabled:false
         }
         this.setparamsHandle = this.setparamsHandle.bind(this)
         this.iptAccount = this.iptAccount.bind(this);
@@ -151,6 +151,7 @@ export default class OccupiedModule extends Component {
     }
     addRequest(){
         // 创建新增
+        let self =this
         let verifyResult = this.verifyHandle()
         if(!verifyResult) return
         let {params} = this.state
@@ -168,30 +169,38 @@ export default class OccupiedModule extends Component {
             "categoryId": selectItem.categoryId,
             "categoryName": selectItem.categoryName
         }
-        this.setState({btnDiabled:true})
-        $.ajax({
-            method: 'POST',
-            url : `${API_PATH}/launch-api/schedule/scheduledetail`,
-            xhrFields: {
-                withCredentials: true
-            },
-            contentType: 'application/json;charset=utf-8',
-            data: JSON.stringify(requestParams),
-            success: function (res) {
-                this.setState({btnDiabled:false})
-                if(res.resultCode=='100'){
-                    refreshHandle(true)
-                    hideOccupiedModule()
-                    showToast({
-                        bgColor:false,
-                        msg:'新增预占成功'
+        self.setState({
+            btnDisabled:true
+        },()=>{
+            $.ajax({
+                method: 'POST',
+                url : `${API_PATH}/launch-api/schedule/scheduledetail`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                contentType: 'application/json;charset=utf-8',
+                data: JSON.stringify(requestParams),
+                success: function (res) {
+                    self.setState({
+                        btnDisabled:false
                     })
+                    if(res.resultCode=='100'){
+                        refreshHandle(true)
+                        hideOccupiedModule()
+                        showToast({
+                            bgColor:false,
+                            msg:'新增预占成功'
+                        })
+                    }
                 }
-            }
+            })
         })
+
+
     }
     editRequest(){
         // 编辑新增
+        let self = this
         let verifyResult = this.verifyHandle()
         if(!verifyResult) return
         let {params,data} = this.state
@@ -209,26 +218,31 @@ export default class OccupiedModule extends Component {
             "categoryId": selectItem.categoryId,
             "categoryName": selectItem.categoryName
         }
-        this.setState({btnDiabled:true})
-        $.ajax({
-            method: 'PUT',
-            url : `${API_PATH}/launch-api/schedule/scheduledetail/${data.id}`,
-            xhrFields: {
-                withCredentials: true
-            },
-            contentType: 'application/json;charset=utf-8',
-            data: JSON.stringify(requestParams),
-            success: function (res) {
-                this.setState({btnDiabled:false})
-                if(res.resultCode=='100'){
-                    refreshHandle(true)
-                    hideOccupiedModule()
-                    showToast({
-                        bgColor:false,
-                        msg:'新增预占成功'
+        self.setState({
+            btnDisabled:true
+        },()=>{
+            $.ajax({
+                method: 'PUT',
+                url : `${API_PATH}/launch-api/schedule/scheduledetail/${data.id}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                contentType: 'application/json;charset=utf-8',
+                data: JSON.stringify(requestParams),
+                success: function (res) {
+                    self.setState({
+                        btnDisabled:false
                     })
+                    if(res.resultCode=='100'){
+                        refreshHandle(true)
+                        hideOccupiedModule()
+                        showToast({
+                            bgColor:false,
+                            msg:'新增预占成功'
+                        })
+                    }
                 }
-            }
+            })
         })
     }
     editModifyRequest(){
@@ -243,27 +257,34 @@ export default class OccupiedModule extends Component {
             "times": params.times,
             "groupNum": params.groupNum,
         }
-        this.setState({btnDiabled:true})
-        $.ajax({
-            method: 'PUT',
-            url : `${API_PATH}/launch-api/schedule/scheduleitem/${selectSchedule.id}`,
-            xhrFields: {
-                withCredentials: true
-            },
-            contentType: 'application/json;charset=utf-8',
-            data: JSON.stringify(requestParams),
-            success: function (res) {
-                this.setState({btnDiabled:false})
-                if(res.resultCode=='100'){
-                    refreshHandle(true)
-                    hideOccupiedModule()
-                    showToast({
-                        bgColor:false,
-                        msg:'修改成功'
+        let self=this
+        self.setState({
+            btnDisabled:true
+        },()=>{
+            $.ajax({
+                method: 'PUT',
+                url : `${API_PATH}/launch-api/schedule/scheduleitem/${selectSchedule.id}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                contentType: 'application/json;charset=utf-8',
+                data: JSON.stringify(requestParams),
+                success: function (res) {
+                    self.setState({
+                        btnDisabled:false
                     })
+                    if(res.resultCode=='100'){
+                        refreshHandle(true)
+                        hideOccupiedModule()
+                        showToast({
+                            bgColor:false,
+                            msg:'修改成功'
+                        })
+                    }
                 }
-            }
+            })
         })
+
     }
     verifyHandle(){
         let verifyResult = true
@@ -473,7 +494,7 @@ export default class OccupiedModule extends Component {
                     <div className="occupied-content-btn-box">
                         <div className="occupied-content-btn refund-btn" onClick={this.refundBtn}>取消</div>
                         {
-                            selectItem.timeFlag?<button disabled={this.state.btnDiabled} className="occupied-content-btn new-btn" onClick={this.addNewBtn}>{flag=='EDIT'?'确认保存':'新增预占'}</button>:''
+                            selectItem.timeFlag?<button disabled={this.state.btnDisabled} className="occupied-content-btn new-btn" onClick={this.addNewBtn}>{flag=='EDIT'?'确认保存':'新增预占'}</button>:''
                         }
                     </div>
                 </div>
